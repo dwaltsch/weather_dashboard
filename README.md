@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# Wetter Dashboard
+# ================
+In diesem Projekt soll ein interaktives Wetter-Dashboard entwickelt werden, das mithilfe der OpenWeather API Echtzeit-Wetterdaten anzeigt. Das Dashboard soll mit React erstellt werden, um eine schnelle und reaktionsfähige Benutzeroberfläche zu gewährleisten.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Das Dashboard soll eine Vielzahl von Funktionen bieten, darunter:
 
-## Available Scripts
+Aktuelle Wetterbedingungen: Das Dashboard soll die aktuellen Wetterbedingungen wie Temperatur, Luftfeuchtigkeit, Windgeschwindigkeit und -richtung, Luftdruck und Wetterbeschreibung anzeigen.
 
-In the project directory, you can run:
+Wettervorhersage: Das Dashboard soll eine Vorhersage für die nächsten Tage anzeigen, einschließlich der Tageshöchst- und -tiefsttemperaturen, Niederschlagswahrscheinlichkeit und Wetterbeschreibung.
 
-### `npm start`
+Standortbasierte Wetterdaten: Das Dashboard soll es dem Benutzer ermöglichen, Wetterdaten für seinen aktuellen Standort abzurufen, indem es auf die Geolocation-API des Browsers zugreift.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Suche nach Wetterdaten: Das Dashboard soll es dem Benutzer ermöglichen, nach Wetterdaten für einen bestimmten Standort zu suchen, indem er eine Stadt oder einen Ort in ein Suchfeld eingibt.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Einheitenumrechnung: Das Dashboard soll es dem Benutzer ermöglichen, zwischen verschiedenen Einheiten für Temperatur, Windgeschwindigkeit und -richtung sowie Luftdruck umzuschalten.
 
-### `npm test`
+Das Dashboard soll eine benutzerfreundliche Oberfläche haben und einfach zu bedienen sein. Die Daten werden mithilfe der OpenWeather API abgerufen und sollten in Echtzeit aktualisiert werden. Das Design des Dashboards soll sauber und modern sein und sich an die aktuellen Designstandards anpassen.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Insgesamt soll das Wetter-Dashboard eine nützliche Ressource für Menschen sein, die auf einfache Weise das aktuelle Wetter oder die Wettervorhersage abrufen möchten.
