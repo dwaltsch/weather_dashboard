@@ -10,9 +10,10 @@ function Daily_forecast() {
 
             const {latitude, longitude} = position.coords;
             // fetch from openweatherapi
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely,current,alerts&appid=${apikey}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     setData(data);
                 })
         };
@@ -31,8 +32,8 @@ function Daily_forecast() {
     }
     return (
         <div className={styles.forecastList}>
-            <p className={styles.forecastListElement}>{new Date(data.dt * 1000).toLocaleDateString("de-DE")}</p>
-            <p className={styles.forecastListElement}>{data.main.temp + " °C"}</p>
+            <p>{new Date(data.dt * 1000).toLocaleDateString("de-DE")}</p>
+            <p>{data.main.temp + " °C"}</p>
             <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`} alt="weather icon"/>
         </div>
     );
