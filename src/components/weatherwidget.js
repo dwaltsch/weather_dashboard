@@ -1,9 +1,10 @@
 //import data from '/secrets/secrets.json';
 import React, {Component,useEffect,useState} from 'react';
 import Geocode from "react-geocode";
+import styles from './weatherwidget.module.css';
 
 
-function Header() {
+function Weatherwidget() {
     const [data,setData] = useState([]);
 
     useEffect(() => {
@@ -23,16 +24,21 @@ function Header() {
         const errorCallback = (error) => {
             console.log(error);
         };
-
-
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     }, []);
 
+    if(!data.main){
+        return <div>loading...</div>
+    }
+
     return (
-        <div>
-            <h1>Wetter in {data.name}</h1>
+        <div className={styles.container}>
+            <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`} alt="weather icon"/>
+            <h1>{data.main.temp}°C</h1>
+            <h2>{data.weather[0].description}</h2>
+            <h2>Wind: {data.wind.speed} m/s</h2>
         </div>
     );
 }
 
-export default Header;
+export default Weatherwidget;
