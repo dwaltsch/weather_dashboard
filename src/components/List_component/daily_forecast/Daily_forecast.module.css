@@ -1,0 +1,11 @@
+.forecastList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgray;
+    width: 30vw;
+    border-radius: 20px;
+}
+.forecastListElement{
+    margin: 5%;
+}
