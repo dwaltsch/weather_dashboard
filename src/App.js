@@ -1,7 +1,7 @@
 import './App.css';
-import Header from "./components/Header";
+import Header from "./components/Header_component/Header";
 import List from './components/List_component/List';
-import Weatherwidget from "./components/weatherwidget";
+import Weatherwidget from "./components/Weatherwidget_component/weatherwidget";
 
 function App() {
   return (
