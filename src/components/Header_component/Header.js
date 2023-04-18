@@ -1,10 +1,9 @@
 //import data from '/secrets/secrets.json';
-import React, {Component,useEffect,useState} from 'react';
-import Geocode from "react-geocode";
+import React, {useEffect, useState} from 'react';
 
 
 function Header() {
-    const [data,setData] = useState([]);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         const apikey = ""

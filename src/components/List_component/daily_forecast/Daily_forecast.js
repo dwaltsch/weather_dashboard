@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from "./Daily_forecast.module.css";
 import secret from '../../../secret/secret.json';
 
 function Daily_forecast() {
-    const [data,setData] = useState({});
+    const [data, setData] = useState({});
 
     useEffect(() => {
         const successCallback = (position) => {
@@ -20,7 +20,7 @@ function Daily_forecast() {
 
         const errorCallback = (error) => {
             console.log(error);
-            return;
+
         };
 
 
