@@ -1,4 +1,4 @@
-//import data from '/secrets/secrets.json';
+import data from "/public/secrets/secrets.json";
 import React, {Component,useEffect,useState} from 'react';
 import Geocode from "react-geocode";
 import styles from './weatherwidget.module.css';
@@ -8,7 +8,7 @@ function Weatherwidget() {
     const [data,setData] = useState([]);
 
     useEffect(() => {
-        const apikey = ""
+        const apikey = data.apiKey;
 
         const successCallback = (position) => {
 
