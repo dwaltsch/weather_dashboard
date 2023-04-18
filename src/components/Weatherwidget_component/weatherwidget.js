@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './weatherwidget.module.css';
-import secret from '../../secrets/secrets.json';
+import secret from '../../secret/secret.json';
 
 function getWindDirection(deg) {
     const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];

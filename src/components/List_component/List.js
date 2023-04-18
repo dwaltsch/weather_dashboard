@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Daily_forecast from "./daily_forecast/Daily_forecast";
-import secret from "../../secrets/secrets.json";
+import secret from "../../secret/secret.json";
 
 function List() {
   const [data, setData] = useState([]);
