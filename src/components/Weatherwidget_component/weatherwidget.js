@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import Geocode from "react-geocode";
 import styles from './weatherwidget.module.css';
-import secret from '../../secret/secret.json';
+import secret from '../../secrets/secrets.json';
 
 function Weatherwidget() {
     const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ function Weatherwidget() {
         const successCallback = (position) => {
             const {latitude, longitude} = position.coords;
             // fetch from openweatherapi
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric`)
+            fetch(`api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&cnt=3&appid=${secret.apiKey}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data);
