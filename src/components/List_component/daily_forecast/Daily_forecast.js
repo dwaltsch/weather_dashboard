@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from "./Daily_forecast.module.css";
 
 function Daily_forecast({daytime, temperature, weatherIcon}) {
