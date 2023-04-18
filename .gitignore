@@ -22,8 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# secrets
-/secrets/secrets.json
+#secret
 
 # Webstorm
-.idea
+.idea!
+/src/components/secret.json

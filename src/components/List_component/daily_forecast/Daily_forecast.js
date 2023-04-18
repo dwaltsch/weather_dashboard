@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Daily_forecast.module.css";
+import secret from '../../secret.json';
 
 function Daily_forecast() {
     const [data,setData] = useState({});
 
     useEffect(() => {
-        const apikey = "03dbd3adc6f89a12db0e356d17b92fe9";
         const successCallback = (position) => {
 
             const {latitude, longitude} = position.coords;
             // fetch from openweatherapi
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely,current,alerts&appid=${apikey}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely,current,alerts&appid=${secret.apiKey}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
