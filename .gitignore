@@ -26,4 +26,4 @@ yarn-error.log*
 
 # Webstorm
 .idea!
-/src/components/secret.json
+/src/secret/secret.json

@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import Geocode from "react-geocode";
 import styles from './weatherwidget.module.css';
-import secret from '../secret.json';
+import secret from '../../secret/secret.json';
 
 function Weatherwidget() {
     const [data, setData] = useState([]);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Daily_forecast.module.css";
-import secret from '../../secret.json';
+import secret from '../../../secret/secret.json';
 
 function Daily_forecast() {
     const [data,setData] = useState({});
