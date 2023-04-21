@@ -1,4 +1,5 @@
 import './App.css';
+import secret from "./secret/secret.json"
 import Header from "./components/HeaderComponent/Header.js";
 import List from './components/ListComponent/List.js';
 import Weatherwidget from "./components/WeatherwidgetComponent/WeatherwidgetComponent.js";
