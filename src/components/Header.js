@@ -8,10 +8,7 @@ function Header(props) {
 
         const successCallback = (position) => {
             const {latitude, longitude} = position.coords;
-            console.log(props.apiKey);
-            console.log(position);
-
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${props.apiKey}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${props.apikey}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data);

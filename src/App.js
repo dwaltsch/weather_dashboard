@@ -9,7 +9,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <Header apikey={secret.apiKey}></Header>
+                <Header apiKey={secret.apiKey}></Header>
                 <Weatherwidget></Weatherwidget>
                 <Moonphase></Moonphase>
                 <List></List>
