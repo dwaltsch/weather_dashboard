@@ -15,7 +15,7 @@ function Weatherwidget() {
         const successCallback = (position) => {
             const {latitude, longitude} = position.coords;
             // fetch from openweatherapi
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data);
@@ -28,17 +28,21 @@ function Weatherwidget() {
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     }, []);
 
-    if (!data.main) {
+    if (!data.current) {
         return <div>loading...</div>
     }
 
     return (
         <div className={styles.container}>
-            <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`} alt="weather icon"/>
-            <h1>{data.main.temp}°C</h1>
-            <h2>{data.weather[0].description}</h2>
-            <h2>Luftfeuchtigkeit: {data.main.humidity} %</h2>
-            <h2>Wind: {data.wind.speed} m/s Richtung {getWindDirection(data.wind.deg)}</h2>
+            <img src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`} alt="weather icon"/>
+            <h1>{data.current.temp}°C</h1>
+            <h2>Luftfeuchtigkeit: {data.current.humidity} %</h2>
+            <h2>{data.current.weather[0].description}</h2>
+            <h2>Wind: {data.current.wind_speed} m/s Richtung {getWindDirection(data.current.wind_deg)}</h2>
+            <h2>
+                Regenwahrscheinlichkeit{' '}
+                {typeof data.hourly[0].rain !== 'undefined' ? data.hourly[0].rain['1h'] : 0} %
+            </h2>
         </div>
     );
 }

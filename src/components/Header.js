@@ -1,18 +1,17 @@
 //import data from '/secrets/secrets.json';
 import React, {useEffect, useState} from 'react';
 
-
-function Header() {
+function Header(props) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        const apikey = "03dbd3adc6f89a12db0e356d17b92fe9"
 
         const successCallback = (position) => {
-
             const {latitude, longitude} = position.coords;
-            // fetch from openweatherapi
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=metric`)
+            console.log(props.apiKey);
+            console.log(position);
+
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${props.apiKey}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data);
