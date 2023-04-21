@@ -1,8 +1,8 @@
 import './App.css';
-import Header from "./components/Header_component/Header";
-import List from './components/List_component/List';
-import Weatherwidget from "./components/Weatherwidget_component/weatherwidget";
-import Moonphase from "./components/Moonphase_component/moonphase";
+import Header from "./components/HeaderComponent/Header.js";
+import List from './components/ListComponent/List.js';
+import Weatherwidget from "./components/WeatherwidgetComponent/WeatherwidgetComponent.js";
+import Moonphase from "./components/MoonphaseComponent/MoonphaseComponent.js";
 
 function App() {
     return (

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Daily_forecast from "./daily_forecast/Daily_forecast";
+import Daily_forecast from "./dailyForecast/DailyForecast";
 import secret from "../../secret/secret.json";
 
-function List() {
+export default function List() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -10,14 +10,16 @@ function List() {
       const { latitude, longitude } = position.coords;
       // fetch from openweatherapi
       fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely,current,alerts&appid=${secret.apiKey}&units=metric&cb`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric&cnt=5`
       )
         .then((response) => response.json())
-        .then(({list}) => setData(list));
+        .then(({list}) => {
+          setData(list);
+        });
     };
 
     const errorCallback = (error) => {
-      console.log(error);
+      console.error(error);
       return;
     };
 
@@ -33,7 +35,8 @@ function List() {
       {data.map(({ dt, main, weather }) => {
         return (
           <Daily_forecast
-            daytime={new Date(dt * 1000).toLocaleDateString("de-DE")}
+            day = {new Date(dt * 1000).toLocaleDateString("de-DE")}
+            daytime={new Date(dt * 1000).toLocaleTimeString("de-DE")}
             temperature={main.temp + " °C"}
             weatherIcon={`http://openweathermap.org/img/wn/${weather[0].icon}.png`}
           />
@@ -42,5 +45,3 @@ function List() {
     </div>
   );
 }
-
-export default List;

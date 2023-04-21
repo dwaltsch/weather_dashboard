@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from './weatherwidget.module.css';
+import styles from './WeatherwidgetComponent.module.css';
 import secret from '../../secret/secret.json';
 
 function getWindDirection(deg) {
@@ -8,7 +8,7 @@ function getWindDirection(deg) {
     return directions[index];
 }
 
-function Weatherwidget() {
+function WeatherwidgetComponent() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -43,4 +43,4 @@ function Weatherwidget() {
     );
 }
 
-export default Weatherwidget;
+export default WeatherwidgetComponent;
