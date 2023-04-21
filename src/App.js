@@ -10,9 +10,13 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <Header apikey={secret.apiKey}></Header>
-                <Weatherwidget></Weatherwidget>
-                <Moonphase></Moonphase>
-                <List></List>
+                <div className='App-body'>
+                    <div className="App-body-left-side">
+                        <Weatherwidget></Weatherwidget>
+                        <Moonphase></Moonphase>
+                    </div>
+                    <List></List>
+                </div>
             </header>
         </div>
     );
