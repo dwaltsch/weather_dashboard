@@ -13,3 +13,7 @@
     flex-direction: column;
     justify-content: center;
 }
+.temperature{
+    font-size:25px;
+    font-weight: bold;
+}

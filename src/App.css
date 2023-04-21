@@ -15,5 +15,8 @@
 .App-body{
     display: flex;
     flex-direction: row;
+    width: 70%;
+    justify-content: space-between;
+    align-content: space-between;
 }
 
