@@ -8,7 +8,7 @@ export default function DailyForecast({day, daytime, temperature, weatherIcon}) 
                 <span>{day}</span>
                 <span>{daytime}</span>
             </div>
-            <p className={styles.temperature}>{temperature}</p>
+            <p className={styles.temperature}>{Math.floor(temperature)}</p>
             <img src={weatherIcon} alt="weather icon"/>
         </div>
     );

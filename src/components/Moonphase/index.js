@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from './MoonphaseComponent.module.css';
+import styles from './Moonphase.module.css';
 import secret from '../../secret/secret.json';
 
 function moon_phase_recommendations(moon_phase_percent) {

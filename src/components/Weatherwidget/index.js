@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from './WeatherwidgetComponent.module.css';
+import styles from './Weatherwidget.module.css';
 import secret from '../../secret/secret.json';
 
 function getWindDirection(deg) {

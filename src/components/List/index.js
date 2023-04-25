@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Daily_forecast from "./dailyForecast/DailyForecast";
+import Daily_forecast from "./DailyForecast/index.js";
 import secret from "../../secret/secret.json";
 
 export default function List() {
