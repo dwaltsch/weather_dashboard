@@ -15,7 +15,7 @@ function WeatherwidgetComponent() {
         const successCallback = (position) => {
             const {latitude, longitude} = position.coords;
             // fetch from openweatherapi
-            fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric&lang=de`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data);
@@ -35,13 +35,13 @@ function WeatherwidgetComponent() {
     return (
         <div className={styles.container}>
             <img src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`} alt="weather icon"/>
-            <h1>{data.current.temp}°C</h1>
+            <h1>{data.current.temp.toFixed(1)}°C</h1>
             <h2>Luftfeuchtigkeit: {data.current.humidity} %</h2>
             <h2>{data.current.weather[0].description}</h2>
             <h2>Wind: {data.current.wind_speed} m/s Richtung {getWindDirection(data.current.wind_deg)}</h2>
             <h2>
                 Regenwahrscheinlichkeit{' '}
-                {typeof data.hourly[0].rain !== 'undefined' ? data.hourly[0].rain['1h'] : 0} %
+                {typeof data.hourly[0].rain !== 'undefined' ? data.hourly[0].rain['1h']*100 : 0} %
             </h2>
         </div>
     );

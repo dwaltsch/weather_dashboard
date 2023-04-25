@@ -21,8 +21,17 @@ h1 {
 
 img {
     float: left;
+    padding-left: 10px;
 }
 
 p{
     font-size:15px;
+}
+h3{
+    font-size:15px;
+    float: left;
+    padding-left: 10px;
+}
+.moonimage{
+    height: 85px;
 }
