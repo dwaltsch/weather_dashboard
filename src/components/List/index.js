@@ -13,7 +13,7 @@ export default function List() {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric&cnt=5`
       )
         .then((response) => response.json())
-        .then(({list}) => {
+        .then(({ list }) => {
           setData(list);
         });
     };
@@ -29,16 +29,20 @@ export default function List() {
   if (!data) {
     return <p>Loading...</p>;
   }
+  console.log(data)
 
   return (
     <div>
-      {data.map(({ dt, main, weather }) => {
+      {data.map(({ dt, main, weather,wind },index) => {
         return (
           <Daily_forecast
-            day = {new Date(dt * 1000).toLocaleDateString("de-DE")}
+            key={index}
+            day={new Date(dt * 1000).toLocaleDateString("de-DE")}
             daytime={new Date(dt * 1000).toLocaleTimeString("de-DE")}
             temperature={main.temp + " °C"}
             weatherIcon={`http://openweathermap.org/img/wn/${weather[0].icon}.png`}
+            wind={wind.speed}
+            tempFeelsLike = {main.feels_like}
           />
         );
       })}
