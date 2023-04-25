@@ -1,4 +1,3 @@
-import React, {useEffect, useState} from 'react'
 import styles from "./DailyForecast.module.css";
 
 export default function DailyForecast({day, daytime, temperature, weatherIcon}) {
@@ -9,7 +8,7 @@ export default function DailyForecast({day, daytime, temperature, weatherIcon}) 
                 <span>{day}</span>
                 <span>{daytime}</span>
             </div>
-            <p>{temperature}</p>
+            <p className={styles.temperature}>{Math.floor(temperature)}</p>
             <img src={weatherIcon} alt="weather icon"/>
         </div>
     );
