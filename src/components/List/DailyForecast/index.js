@@ -28,7 +28,7 @@ export default function DailyForecast({
         </div>
         {isElementOpen && (
             <div className={styles.forecastListExpanded}>
-                <span>Windgeschwindigkeit: {wind}</span>
+                <span>Windgeschwindigkeit: {Math.round(parseFloat(wind))} m/s</span>
                 <span>Gefühlte Temperatur: {parseInt(tempFeelsLike)} °C</span>
             </div>
         )}
