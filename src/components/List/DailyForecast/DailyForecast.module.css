@@ -4,8 +4,8 @@
     border-radius: 5px;
     margin: 1%;
     height: 80px;
-    width: 27.5vw;
-    transition: height 500ms ease;
+    width: 25vw;
+    transition: height 250ms ease;
 }
 .forecastListExpanded{
     height: 150px;
