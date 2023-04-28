@@ -14,8 +14,13 @@ export default function DailyForecast({
     setIsElementOpen(!isElementOpen);
     
   };
+
+  const forecastListStyle = !isElementOpen ?  styles.forecastList : `${styles.forecastList} ${styles.forecastListExpanded}`
+
+console.log(isElementOpen, forecastListStyle)
+
   return (
-    <div className={styles.forecastList} onClick={toggle}>
+    <div className={forecastListStyle} onClick={toggle}>
         <div className={styles.forecastListNotExpanded}>
             <div className={styles.time}>
             <span>{day}</span>
@@ -27,10 +32,10 @@ export default function DailyForecast({
             <img src={weatherIcon} alt="weather icon" />
         </div>
         {isElementOpen && (
-            <div className={styles.forecastListExpanded}>
+            <>
                 <span>Windgeschwindigkeit: {Math.round(parseFloat(wind))} m/s</span>
                 <span>Gefühlte Temperatur: {parseInt(tempFeelsLike)} °C</span>
-            </div>
+            </>
         )}
     </div>
   );

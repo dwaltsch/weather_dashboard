@@ -25,4 +25,5 @@
     width: 33vw;
     height: 63.5vh;
     overflow-y: auto;
+    scrollbar-width: none;
 }

@@ -3,10 +3,12 @@
     width: 30vw;
     border-radius: 5px;
     margin: 1%;
-    height: auto;
+    height: 80px;
     width: 450px;
+    transition: height 500ms ease;
 }
 .forecastListExpanded{
+    height: 150px;
     display: flex;
     flex-direction: column;
     padding-bottom: 5px;
