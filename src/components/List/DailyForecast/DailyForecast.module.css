@@ -6,6 +6,7 @@
     height: 80px;
     width: 25vw;
     transition: height 250ms ease;
+    scrollbar-width: none;
 }
 .forecastListExpanded{
     height: 150px;
