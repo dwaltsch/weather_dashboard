@@ -17,8 +17,6 @@ export default function DailyForecast({
 
   const forecastListStyle = !isElementOpen ?  styles.forecastList : `${styles.forecastList} ${styles.forecastListExpanded}`
 
-console.log(isElementOpen, forecastListStyle)
-
   return (
     <div className={forecastListStyle} onClick={toggle}>
         <div className={styles.forecastListNotExpanded}>
@@ -33,8 +31,8 @@ console.log(isElementOpen, forecastListStyle)
         </div>
         {isElementOpen && (
             <>
-                <span>Windgeschwindigkeit: {Math.round(parseFloat(wind))} m/s</span>
-                <span>Gefühlte Temperatur: {parseInt(tempFeelsLike)} °C</span>
+              <span>Windgeschwindigkeit: {Math.round(parseFloat(wind))} m/s</span>
+              <span>Gefühlte Temperatur: {parseInt(tempFeelsLike)} °C</span>
             </>
         )}
     </div>
