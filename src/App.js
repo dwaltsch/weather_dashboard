@@ -15,7 +15,9 @@ function App() {
                         <Weatherwidget></Weatherwidget>
                         <Moonphase></Moonphase>
                     </div>
-                    <List></List>
+                    <div className='App-body-right-side'>
+                        <List></List>
+                    </div>
                 </div>
             </header>
         </div>

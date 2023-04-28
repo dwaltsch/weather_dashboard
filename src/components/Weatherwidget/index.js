@@ -35,10 +35,10 @@ function WeatherwidgetComponent() {
     return (
         <div className={styles.container}>
             <img src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`} alt="weather icon"/>
-            <h1>{data.current.temp.toFixed(1)}°C</h1>
+            <h1>{parseInt(data.current.temp.toFixed(1))}°C</h1>
             <h2>Luftfeuchtigkeit: {data.current.humidity} %</h2>
             <h2>{data.current.weather[0].description}</h2>
-            <h2>Wind: {data.current.wind_speed} m/s Richtung {getWindDirection(data.current.wind_deg)}</h2>
+            <h2>Wind: {Math.round(parseFloat(data.current.wind_speed))} m/s Richtung {getWindDirection(data.current.wind_deg)}</h2>
             <h2>
                 Regenwahrscheinlichkeit{' '}
                 {typeof data.hourly[0].rain !== 'undefined' ? data.hourly[0].rain['1h'] * 100 : 0} %
