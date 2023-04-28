@@ -41,7 +41,7 @@ function WeatherwidgetComponent() {
             <h2>Wind: {Math.round(parseFloat(data.current.wind_speed))} m/s Richtung {getWindDirection(data.current.wind_deg)}</h2>
             <h2>
                 Regenwahrscheinlichkeit{' '}
-                {typeof data.hourly[0].rain !== 'undefined' ? data.hourly[0].rain['1h']*100 : 0} %
+                {typeof data.hourly[0].rain !== 'undefined' ? data.hourly[0].rain['1h'] * 100 : 0} %
             </h2>
         </div>
     );
