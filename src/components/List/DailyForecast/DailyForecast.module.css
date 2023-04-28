@@ -8,12 +8,14 @@
     border-radius: 20px;
     margin: 1%;
 }
-.time{
+
+.time {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.temperature{
-    font-size:25px;
+
+.temperature {
+    font-size: 25px;
     font-weight: bold;
 }
