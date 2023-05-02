@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import secret from "../../secret/secret.json";
 
-import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-} from "chart.js";
+import {Line} from "react-chartjs-2";
+import {CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement,} from "chart.js";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend);
+
 function Index() {
     const [data, setData] = useState([]);
 
@@ -30,7 +25,7 @@ function Index() {
 
         const errorCallback = (error) => {
             console.error(error);
-            return;
+
         };
 
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
@@ -72,25 +67,26 @@ function Index() {
       legend: false,
     },
     scales: {
-        x: {  // <-- axis is not array anymore, unlike before in v2.x: '[{'
-          grid: {
-            color: 'rgba(0,0,0,0.5)',
-            lineWidth:1  // <-- this line is answer to initial question
-          },
-          ticks:{
-            color:"#000000"       
-        } 
+      x: {
+        grid: {
+          display: false,
+          color: 'rgba(0,0,0,0.5)',
+          lineWidth:1
         },
-        y: {  // <-- axis is not array anymore, unlike before in v2.x: '[{'
-          grid: {
-            color: 'rgba(0,0,0,0.5)',
-            lineWidth:1  // <-- this line is answer to initial question
-          },
-        
+        ticks:{
+          color:"#000000"
+        }
+      },
+      y:{
+        grid: {
+          color: 'rgba(0,0,0,0.5)',
+          lineWidth:1  // <-- this line is answer to initial question
+        },
         ticks:{
             stepSize: 2,
-            color:"#000000"       
-        }        
+            color: "#000000"
+            
+        }
       }
     },
   };

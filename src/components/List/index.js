@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Daily_forecast from "./DailyForecast/index.js";
+import DAILY_FORECAST from "./DailyForecast/index.js";
 import secret from "../../secret/secret.json";
 
 export default function List() {
@@ -20,7 +20,7 @@ export default function List() {
 
         const errorCallback = (error) => {
             console.error(error);
-            return;
+
         };
 
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
@@ -31,15 +31,15 @@ export default function List() {
 
     return (
         <div>
-            {data.map(({dt, main, weather,wind}) => {
+            {data.map(({dt, main, weather, wind}) => {
                 return (
-                    <Daily_forecast
+                    <DAILY_FORECAST
                         day={new Date(dt * 1000).toLocaleDateString("de-DE")}
                         daytime={new Date(dt * 1000).toLocaleTimeString("de-DE")}
                         temperature={main.temp + " °C"}
                         weatherIcon={`http://openweathermap.org/img/wn/${weather[0].icon}.png`}
-                        wind = {wind.speed}
-                        tempFeelsLike = {main.feels_like}
+                        wind={wind.speed}
+                        tempFeelsLike={main.feels_like}
                     />
                 );
             })}
