@@ -72,17 +72,25 @@ function Index() {
       legend: false,
     },
     scales: {
-      x: {
-        grid: {
-          display: false,
+        x: {  // <-- axis is not array anymore, unlike before in v2.x: '[{'
+          grid: {
+            color: 'rgba(0,0,0,0.5)',
+            lineWidth:1  // <-- this line is answer to initial question
+          },
+          ticks:{
+            color:"#000000"       
+        } 
         },
-      },
-      y:{
+        y: {  // <-- axis is not array anymore, unlike before in v2.x: '[{'
+          grid: {
+            color: 'rgba(0,0,0,0.5)',
+            lineWidth:1  // <-- this line is answer to initial question
+          },
         
         ticks:{
             stepSize: 2,
-            
-        }
+            color:"#000000"       
+        }        
       }
     },
   };
