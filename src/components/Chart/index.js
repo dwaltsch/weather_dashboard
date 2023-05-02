@@ -9,9 +9,10 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
+    Legend,
 } from "chart.js";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend);
 function Index() {
     const [data, setData] = useState([]);
 
@@ -52,24 +53,28 @@ function Index() {
     labels: [dateArray[0],dateArray[1],dateArray[2],dateArray[3],dateArray[4]],
     datasets: [
       {
+          label: "Temperatur",
         data: [temperatureArray[0],temperatureArray[1],temperatureArray[2],temperatureArray[3],temperatureArray[4]],
-        backgroundColor: "transparent",
+        backgroundColor: "#555555",
         borderColor: "#555555",
         pointBorderColor: "transparent",
         pointBorderWidth: 4,
       },
       {
+        label: "Gefühlte Temperatur",
         data: [temperatureFeelsLike[0],temperatureFeelsLike[1],temperatureFeelsLike[2],temperatureFeelsLike[3],temperatureFeelsLike[4]],
-        backgroundColor: "blue",
-        borderColor: "blue",
-        pointBorderColor: "blue",
-        pointBorderWidth: 4,  
+        backgroundColor: "white",
+        borderColor: "white",
+        pointBorderColor: "transparent",
+        pointBorderWidth: 4,
       }
     ],
   };
   const options = {
     plugins: {
-      legend: false,
+        legend: {
+            position: 'bottom',
+        },
     },
     scales: {
       x: {
