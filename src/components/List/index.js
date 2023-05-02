@@ -25,7 +25,6 @@ export default function List() {
 
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     }, []);
-    console.log(data)
     if (!data) {
         return <p>Loading...</p>;
     }
