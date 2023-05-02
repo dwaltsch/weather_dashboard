@@ -8,12 +8,16 @@
     transition: height 250ms ease;
     overflow: -moz-scrollbars-none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
-    &::-webkit-scrollbar {
-     display: none; /* Chrome and Safari */
- }
+    scrollbar-width: none;
+
+/* Firefox */
+&
+::-webkit-scrollbar {
+    display: none; /* Chrome and Safari */
 }
-.forecastListExpanded{
+
+}
+.forecastListExpanded {
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -21,15 +25,15 @@
 }
 
 .forecastListNotExpanded {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .forecastList:hover {
-  cursor: pointer;
-  background-color: #959595;  
+    cursor: pointer;
+    background-color: #959595;
 }
 
 .time {
