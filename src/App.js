@@ -4,6 +4,7 @@ import Header from "./components/Header/";
 import List from './components/List/';
 import Weatherwidget from "./components/Weatherwidget/";
 import Moonphase from "./components/Moonphase/";
+import Chart from "./components/Chart/"
 
 function App() {
     return (
@@ -18,6 +19,9 @@ function App() {
                     <div className='App-body-right-side'>
                         <List></List>
                     </div>
+                </div>
+                <div className="Chart">
+                    <Chart></Chart>
                 </div>
             </header>
         </div>

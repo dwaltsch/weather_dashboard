@@ -28,3 +28,9 @@
     overflow-y: auto;
     scrollbar-width: none;
 }
+.Chart{
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    height: 50vh;
+}
