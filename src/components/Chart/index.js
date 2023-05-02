@@ -55,9 +55,9 @@ function Index() {
       },
       {
         data: [temperatureFeelsLike[0],temperatureFeelsLike[1],temperatureFeelsLike[2],temperatureFeelsLike[3],temperatureFeelsLike[4]],
-        backgroundColor: "blue",
-        borderColor: "blue",
-        pointBorderColor: "blue",
+        backgroundColor: "white",
+        borderColor: "white",
+        pointBorderColor: "white",
         pointBorderWidth: 4,  
       }
     ],
