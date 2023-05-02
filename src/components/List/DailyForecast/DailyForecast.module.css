@@ -6,7 +6,12 @@
     height: 80px;
     width: 25vw;
     transition: height 250ms ease;
-    scrollbar-width: none;
+    overflow: -moz-scrollbars-none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+     display: none; /* Chrome and Safari */
+ }
 }
 .forecastListExpanded{
     height: 150px;
