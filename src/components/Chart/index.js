@@ -48,6 +48,7 @@ function Index() {
     dateArray.push(new Date(dt * 1000).toLocaleTimeString("de-DE"));
     temperatureArray.push(main.temp);
     temperatureFeelsLike.push(main.feels_like);
+    return;
   });
   const dataForChart = {
     labels: [
@@ -93,7 +94,6 @@ function Index() {
     scales: {
       x: {
         grid: {
-          display: false,
           color: "rgba(0,0,0,0.5)",
           lineWidth: 1,
         },
@@ -104,7 +104,7 @@ function Index() {
       y: {
         grid: {
           color: "rgba(0,0,0,0.5)",
-          lineWidth: 1, // <-- this line is answer to initial question
+          lineWidth: 1,
         },
         ticks: {
           stepSize: 2,
