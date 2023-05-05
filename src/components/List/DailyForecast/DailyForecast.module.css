@@ -1,10 +1,9 @@
 .forecastList {
     background-color: #cccccc;
-    width: 30vw;
+    width: 40vw;
     border-radius: 5px;
     margin: 1%;
     height: 80px;
-    width: 25vw;
     transition: height 250ms ease;
     overflow: -moz-scrollbars-none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -25,6 +24,7 @@
 }
 
 .forecastListNotExpanded {
+    width: 40vw;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
