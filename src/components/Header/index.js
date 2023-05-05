@@ -6,7 +6,7 @@ function Header(props) {
     useEffect(() => {
         const successCallback = (position) => {
             const {latitude, longitude} = position.coords;
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${props.apikey}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${props.apiKey}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data);
@@ -19,7 +19,7 @@ function Header(props) {
 
 
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    }, []);
+    }, [props.apiKey]);
 
     return (
         <div>
