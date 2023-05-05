@@ -39,7 +39,7 @@ function Index() {
   if (!data) {
     return <p>Loading...</p>;
   }
-  console.log(data);
+
 
   let dateArray = [];
   let temperatureArray = [];
