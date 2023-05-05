@@ -10,11 +10,11 @@ export default function List() {
             const {latitude, longitude} = position.coords;
             // fetch from openweatherapi
             fetch(
-                `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric&cnt=5`
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,alerts,hourly&units=metric&appid=${secret.apiKey}`
             )
                 .then((response) => response.json())
-                .then(({list}) => {
-                    setData(list);
+                .then((list) => {
+                    setData(list.daily);
                 });
         };
 
@@ -25,24 +25,25 @@ export default function List() {
 
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     }, []);
+    console.log(data)
     if (!data) {
         return <p>Loading...</p>;
     }
-
+    let count = 0;
     return (
         <div>
-            {data.map(({dt, main, weather, wind}) => {
+            {data.map(({dt,temp, wind_speed,feels_like  , weather}) => {
                 return (
                     <DAILY_FORECAST
                         day={new Date(dt * 1000).toLocaleDateString("de-DE")}
                         daytime={new Date(dt * 1000).toLocaleTimeString("de-DE")}
-                        temperature={main.temp + " °C"}
+                        temperature={temp.day + " °C"}
                         weatherIcon={`http://openweathermap.org/img/wn/${weather[0].icon}.png`}
-                        wind={wind.speed}
-                        tempFeelsLike={main.feels_like}
+                        wind={wind_speed}
+                        tempFeelsLike={feels_like.day}
                     />
                 );
-            })}
+            },count++)}
         </div>
     );
 }
