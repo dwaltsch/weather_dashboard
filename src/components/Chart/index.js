@@ -53,6 +53,7 @@ function Index() {
         ],
         datasets: [
             {
+                label: "Temperatur",
                 data: [
                     temperatureArray[0],
                     temperatureArray[1],
@@ -60,12 +61,13 @@ function Index() {
                     temperatureArray[3],
                     temperatureArray[4],
                 ],
-                backgroundColor: "transparent",
+                backgroundColor: "#555555",
                 borderColor: "#555555",
                 pointBorderColor: "transparent",
                 pointBorderWidth: 4,
             },
             {
+                label: "Gefühlte Temperatur",
                 data: [
                     temperatureFeelsLike[0],
                     temperatureFeelsLike[1],
@@ -73,7 +75,7 @@ function Index() {
                     temperatureFeelsLike[3],
                     temperatureFeelsLike[4],
                 ],
-                backgroundColor: "transparent",
+                backgroundColor: "white",
                 borderColor: "white",
                 pointBorderColor: "transparent",
                 pointBorderWidth: 4,
@@ -82,7 +84,9 @@ function Index() {
     };
     const options = {
         plugins: {
-            legend: false,
+            legend: {
+                position: 'bottom',
+            },
         },
         scales: {
             x: {
