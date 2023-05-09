@@ -1,6 +1,6 @@
 .forecastList {
     background-color: #cccccc;
-    width: 40vw;
+    width: auto;
     border-radius: 5px;
     margin: 1%;
     height: 80px;
@@ -24,7 +24,8 @@
 }
 
 .forecastListNotExpanded {
-    width: 40vw;
+    min-width: 25vw;
+    width: 25vw;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

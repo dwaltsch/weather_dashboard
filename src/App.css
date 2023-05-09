@@ -16,26 +16,27 @@
 .App-body {
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 70vw;
     justify-content: space-between;
 }
 .App-body-right-side {
     display: flex;
     justify-content: center;
-    width: 33vw;
+    width: 30vw;
     height: 65.5vh;
     overflow-y: auto;
     scrollbar-width: none;
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1250px) {
     .App-body {
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
     .App-body-right-side {
         display: flex;
         justify-content: left;
-        width: 100% ;
+        width: auto ;
         height: 65.5vh;
         overflow-y: auto;
         scrollbar-width: none;
