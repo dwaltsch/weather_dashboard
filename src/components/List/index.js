@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import DAILY_FORECAST from "./DailyForecast/index.js";
+import DailyForecast from "./DailyForecast/index.js";
 import secret from "../../secret/secret.json";
 
 export default function List() {
@@ -32,7 +32,7 @@ export default function List() {
         <div>
             {data.map(({dt,temp, wind_speed,feels_like , weather}, i) => {
                 return (
-                    <DAILY_FORECAST
+                    <DailyForecast
                         day={new Date(dt * 1000).toLocaleDateString("de-DE")}
                         daytime={new Date(dt * 1000).toLocaleTimeString("de-DE")}
                         temperature={temp.day + " °C"}
