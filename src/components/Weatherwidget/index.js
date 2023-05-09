@@ -34,7 +34,7 @@ function WeatherwidgetComponent() {
 
     return (
         <div className={styles.container}>
-            <img src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`} alt="weather icon"/>
+            <img src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`} alt="weather icon" width={"200px"} height={"200px"}/>
             <h1>{parseInt(data.current.temp.toFixed(1))}°C</h1>
             <h2>{data.current.weather[0].description}</h2>
             <h2>Luftfeuchtigkeit: {data.current.humidity} %</h2>
@@ -44,7 +44,7 @@ function WeatherwidgetComponent() {
                 Wahrscheinlichkeit{' '}
                 {data.hourly[0].pop !== 0 ? Math.round(data.hourly[0].pop * 100) : 0} %
             </h2>
-            <h2 style={{margin: 'auto', display: 'flex', justifyContent: 'right', right: '50px'}}>
+            <h2 style={{margin: 'auto', display: 'flex', justifyContent: 'center', right: '50px'}}>
                 Menge{' '}
                 {typeof data.hourly[0].rain !== 'undefined' ? data.hourly[0].rain['1h'] : 0} mm
             </h2>
