@@ -27,7 +27,7 @@ export default function DailyForecast({
             </span>
                 </div>
                 <p className={styles.temperature}>{parseInt(temperature)} °C</p>
-                <img src={weatherIcon} alt="weather icon"/>
+                <img width={"50px"} height={"50px"} src={weatherIcon} alt="weather icon"/>
             </div>
             {isElementOpen && (
                 <>
