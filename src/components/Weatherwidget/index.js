@@ -44,7 +44,7 @@ function WeatherwidgetComponent() {
                 Wahrscheinlichkeit{' '}
                 {data.hourly[0].pop !== 0 ? Math.round(data.hourly[0].pop * 100) : 0} %
             </h2>
-            <h2 style={{margin: 'auto', display: 'flex', justifyContent: 'center', right: '50px'}}>
+            <h2 style={{margin: 'auto', display: 'flex', justifyContent: 'center'}}>
                 Menge{' '}
                 {typeof data.hourly[0].rain !== 'undefined' ? data.hourly[0].rain['1h'] : 0} mm
             </h2>
