@@ -1,10 +1,9 @@
 import './App.css';
 import secret from "./secret/secret.json"
 import Header from "./components/Header/";
-import List from './components/List/';
 import Weatherwidget from "./components/Weatherwidget/";
 import Moonphase from "./components/Moonphase/";
-import Chart from "./components/Chart/"
+import Casino from "./components/Casino/";
 
 function App() {
     return (
@@ -16,18 +15,12 @@ function App() {
                         <div className="widget">
                             <Weatherwidget></Weatherwidget>
                         </div>
-                        <div className="moonbox">
-                            <Moonphase></Moonphase>
-                        </div>
                     </div>
                     <div className='App-body-right-side'>
                         <div className="weatherlist">
-                            <List></List>
+                            <Casino></Casino>
                         </div>
                     </div>
-                </div>
-                <div className="Chart">
-                    <Chart></Chart>
                 </div>
             </header>
         </div>
