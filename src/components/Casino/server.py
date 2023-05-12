@@ -27,6 +27,25 @@ def loadfunds():
     print(funds)
     return str(funds)
 
+@app.route('/enterbet')
+def enterbet():
+    uuid = request.args.get('uuid')
+    bet = request.args.get('bet')
+    rain = request.args.get('temp')
+    conn = sqlite3.connect('casino.db')
+    c = conn.cursor()
+    c.execute('SELECT funds FROM users WHERE uuid=?', (uuid,))
+    funds = c.fetchone()[0]
+    if int(bet) > funds:
+        # return error as a json
+        return jsonify({'msg': 'Insufficient funds', 'funds': funds})
+    else:
+        funds = funds - int(bet)
+        c.execute('UPDATE users SET funds=? WHERE uuid=?', (funds, uuid))
+        conn.commit()
+        conn.close()
+        return jsonify({'msg': 'Bet entered', 'funds': funds})
+
 def createtbl():
     conn = sqlite3.connect('casino.db')
     c = conn.cursor()
