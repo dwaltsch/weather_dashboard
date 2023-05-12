@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
 import styles from './Moonphase.module.css';
-import secret from '../../secret/secret.json';
+import { APIContext } from "../../App.js";
+import { useContext } from 'react';
 
 function moon_phase_recommendations(moon_phase_percent) {
     if (moon_phase_percent <= 5) {
@@ -31,25 +31,7 @@ function moon_phase_recommendations(moon_phase_percent) {
 }
 
 function Moonphase() {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const successCallback = (position) => {
-            const {latitude, longitude} = position.coords;
-            // fetch from openweatherapi
-            fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric&lang=de`)
-                .then(response => response.json())
-                .then(data => {
-                    setData(data);
-                })
-        };
-
-        const errorCallback = (error) => {
-            console.log(error);
-        };
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    }, []);
-
+    const data = useContext(APIContext);
     if (!data.current) {
         return <div>loading...</div>
     }

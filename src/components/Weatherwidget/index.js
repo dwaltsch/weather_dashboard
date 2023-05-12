@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
 import styles from './Weatherwidget.module.css';
-import secret from '../../secret/secret.json';
+import { APIContext } from "../../App.js";
+import { useContext } from 'react';
 
 function getWindDirection(deg) {
     const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
@@ -9,29 +9,10 @@ function getWindDirection(deg) {
 }
 
 function WeatherwidgetComponent() {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const successCallback = (position) => {
-            const {latitude, longitude} = position.coords;
-            // fetch from openweatherapi
-            fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${secret.apiKey}&units=metric&lang=de`)
-                .then(response => response.json())
-                .then(data => {
-                    setData(data);
-                })
-        };
-
-        const errorCallback = (error) => {
-            console.log(error);
-        };
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    }, []);
-
-    if (!data.current) {
-        return <div>loading...</div>
+    const data = useContext(APIContext);
+    if(!data.current){
+        return("Loading")
     }
-
     return (
         <div className={styles.container}>
             <img src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`} alt="weather icon" width={"200px"} height={"200px"}/>

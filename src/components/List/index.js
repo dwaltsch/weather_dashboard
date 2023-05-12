@@ -1,36 +1,13 @@
-import React, {useEffect, useState} from "react";
+import { useContext } from "react";
+import { APIContext } from "../../App.js";
 import DailyForecast from "./DailyForecast/index.js";
-import secret from "../../secret/secret.json";
+
 
 export default function List() {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const successCallback = (position) => {
-            const {latitude, longitude} = position.coords;
-            // fetch from openweatherapi
-            fetch(
-                `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,alerts,hourly&units=metric&appid=${secret.apiKey}`
-            )
-                .then((response) => response.json())
-                .then((list) => {
-                    setData(list.daily);
-                });
-        };
-
-        const errorCallback = (error) => {
-            console.error(error);
-
-        };
-
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    }, []);
-    if (!data) {
-        return <p>Loading...</p>;
-    }
+    const data = useContext(APIContext);  
     return (
         <div>
-            {data.map(({dt,temp, wind_speed,feels_like , weather}, i) => {
+            {(data.daily || []).map(({dt,temp, wind_speed,feels_like , weather}, i) => {
                 return (
                     <DailyForecast
                         day={new Date(dt * 1000).toLocaleDateString("de-DE")}
