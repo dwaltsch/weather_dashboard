@@ -23,7 +23,7 @@ function App() {
                             <div className="widget">
                                 <Weatherwidget></Weatherwidget>
                             </div>
-                            <div className="moonbox">
+                            <div className="widget">
                                 <Moonphase></Moonphase>
                             </div>
                         </div>
