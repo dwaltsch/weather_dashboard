@@ -24,8 +24,7 @@
 }
 
 .forecastListNotExpanded {
-    min-width: 25vw;
-    width: 25vw;
+    width: 400px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

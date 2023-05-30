@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import styles from "./Chart.modules.css";
 import secret from "../../secret/secret.json";
 
 import { Line } from "react-chartjs-2";
@@ -123,7 +123,7 @@ function Index() {
       },
     },
   };
-  return <Line data={dataForChart} options={options}></Line>;
+  return <Line className={styles.Chart} data={dataForChart} options={options}></Line>;
 }
 
 export default Index;
