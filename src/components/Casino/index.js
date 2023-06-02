@@ -41,6 +41,14 @@ function Casino() {
                     })
             }
             }>submit</button>
+            <input type="text" id="funds" name="funds" placeholder="add funds"></input>
+            <button onClick={() => {
+                fetch(`http://localhost:5000/addfunds?uuid=${getUniqueId()}&funds=${document.getElementById("funds").value}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+            }}> add funds </button>
         </div>
     );
 }

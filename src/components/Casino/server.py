@@ -12,6 +12,21 @@ CORS(app)
 def index():
     return 'Hi'
 
+@app.route('/addfunds')
+def addfunds():
+    uuid = request.args.get('uuid')
+    fund = request.args.get('funds')
+    conn = sqlite3.connect('casino.db')
+    c = conn.cursor()
+    c.execute('SELECT funds FROM users WHERE uuid=?', (uuid,))
+    funds = c.fetchone()
+    funds = int(fund) + int(funds[0])
+    c.execute('UPDATE users SET funds=? WHERE uuid=?', (funds, uuid))
+    conn.commit()
+    conn.close()
+    print(funds)
+    return str(funds)
+
 @app.route('/loadfunds')
 def loadfunds():
     uuid = request.args.get('uuid')
@@ -72,18 +87,23 @@ def createbettbl():
 def checkbet():
     # fetch latest bet
     conn = sqlite3.connect('casino.db')
+    randomtemp = getrandomtemp()
     c = conn.cursor()
     c.execute('SELECT temp FROM bets ORDER BY ROWID DESC LIMIT 1')
     bet = c.fetchone()
-    if(int(bet[0]) == getrandomtemp()):
+    c.execute('select bet from bets ORDER BY ROWID DESC LIMIT 1')
+    amount = c.fetchone()
+    print(randomtemp)
+    if (randomtemp - 2 < int(bet[0]) < randomtemp + 2):
         c.execute('SELECT uuid, bet FROM bets ORDER BY ROWID DESC LIMIT 1')
-        uuid = c.fetchone()
+        uuid, bet = c.fetchone()
         c.execute('SELECT funds FROM users WHERE uuid=?', (uuid,))
         funds = c.fetchone()
-        funds = funds[0] * 2
+        print(funds[0])
+        funds = funds[0] + amount[0] * 2
         c.execute('UPDATE users SET funds=? WHERE uuid=?', (funds, uuid))
         c.execute('DELETE FROM bets WHERE uuid=?', (uuid,))
-        print('Bet won')
+        print('Bet won ' + str(funds))
     else:
         # delete all bets
         c.execute('DELETE FROM bets')
