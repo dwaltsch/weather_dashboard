@@ -24,7 +24,6 @@ def addfunds():
     c.execute('UPDATE users SET funds=? WHERE uuid=?', (funds, uuid))
     conn.commit()
     conn.close()
-    print(funds)
     return str(funds)
 
 @app.route('/loadfunds')
@@ -42,7 +41,6 @@ def loadfunds():
         funds = funds[0]
     conn.commit()
     conn.close()
-    print(funds)
     return str(funds)
 
 @app.route('/enterbet')
@@ -63,9 +61,10 @@ def enterbet():
         c.execute('INSERT INTO bets VALUES (?, ?, ?)', (uuid, bet, temp))
         conn.commit()
         conn.close()
-        print(funds, bet, temp)
-        checkbet()
-        return jsonify({'msg': 'Bet entered', 'funds': funds})
+        if(checkbet() == 1):
+            return jsonify({'msg': 'Bet won', 'funds': funds})
+        else:
+            return jsonify({'msg': 'Bet lost', 'funds': funds})
 
 def createtbl():
     conn = sqlite3.connect('casino.db')
@@ -93,23 +92,24 @@ def checkbet():
     bet = c.fetchone()
     c.execute('select bet from bets ORDER BY ROWID DESC LIMIT 1')
     amount = c.fetchone()
-    print(randomtemp)
-    if (randomtemp - 2 < int(bet[0]) < randomtemp + 2):
+    print(randomtemp, bet, amount)
+    if (randomtemp - 1 < int(bet[0]) < randomtemp + 1):
         c.execute('SELECT uuid, bet FROM bets ORDER BY ROWID DESC LIMIT 1')
         uuid, bet = c.fetchone()
         c.execute('SELECT funds FROM users WHERE uuid=?', (uuid,))
         funds = c.fetchone()
-        print(funds[0])
         funds = funds[0] + amount[0] * 2
         c.execute('UPDATE users SET funds=? WHERE uuid=?', (funds, uuid))
         c.execute('DELETE FROM bets WHERE uuid=?', (uuid,))
-        print('Bet won ' + str(funds))
+        conn.commit()
+        conn.close()
+        return 1
     else:
         # delete all bets
         c.execute('DELETE FROM bets')
-        print('Bet lost')
-    conn.commit()
-    conn.close()
+        conn.commit()
+        conn.close()
+        return 0
 
 
 def getrandomtemp():
@@ -121,7 +121,6 @@ def getrandomtemp():
     r = requests.get(url)
     data = r.json()
     hourly_temps = int(data["hourly"][randomweather]["temp"])
-    print(hourly_temps)
     return hourly_temps
 
 
