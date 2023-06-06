@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import { APIContext } from "../../App.js";
+import {useContext} from "react";
+import {APIContext} from "../../App.js";
 import DailyForecast from "./DailyForecast/index.js";
 
 
 export default function List() {
-    const data = useContext(APIContext);  
+    const data = useContext(APIContext);
     return (
         <div>
-            {(data.daily || []).map(({dt,temp, wind_speed,feels_like , weather}, i) => {
+            {(data.daily || []).map(({dt, temp, wind_speed, feels_like, weather}, i) => {
                 return (
                     <DailyForecast
                         day={new Date(dt * 1000).toLocaleDateString("de-DE")}

@@ -1,9 +1,10 @@
-.Chart{
+.Chart {
     width: 800px;
     height: 450px;
 }
+
 @media only screen and (max-width: 1310px) {
-    .Chart{
+    .Chart {
         width: 400px;
         height: 200px;
     }

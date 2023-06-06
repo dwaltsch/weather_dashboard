@@ -1,6 +1,6 @@
 import styles from './Weatherwidget.module.css';
-import { APIContext } from "../../App.js";
-import { useContext } from 'react';
+import {APIContext} from "../../App.js";
+import {useContext} from 'react';
 
 function getWindDirection(deg) {
     const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
@@ -10,12 +10,13 @@ function getWindDirection(deg) {
 
 function WeatherwidgetComponent() {
     const data = useContext(APIContext);
-    if(!data.current){
-        return("Loading")
+    if (!data.current) {
+        return ("Loading")
     }
     return (
         <div className={styles.container}>
-            <img src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`} alt="weather icon" width={"200px"} height={"200px"}/>
+            <img src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`} alt="weather icon"
+                 width={"200px"} height={"200px"}/>
             <h1>{parseInt(data.current.temp.toFixed(1))}°C</h1>
             <h2>{data.current.weather[0].description}</h2>
             <h2>Luftfeuchtigkeit: {data.current.humidity} %</h2>

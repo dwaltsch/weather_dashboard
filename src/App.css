@@ -19,6 +19,7 @@
     width: 70vw;
     justify-content: space-between;
 }
+
 .App-body-right-side {
     display: flex;
     justify-content: center;
@@ -27,14 +28,17 @@
     overflow-y: auto;
     scrollbar-width: none;
 }
+
 .App-body-left-side {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.widget{
+
+.widget {
     width: 500px;
 }
+
 .Chart {
     display: flex;
     justify-content: center;
@@ -43,6 +47,7 @@
     margin: 1.5% 0;
 
 }
+
 @media only screen and (max-width: 1310px) {
     .App-body {
         display: flex;
@@ -50,25 +55,29 @@
         justify-items: center;
         align-items: center;
     }
+
     .App-body-right-side {
         display: flex;
         justify-content: left;
-        width: auto ;
+        width: auto;
         height: 65.5vh;
         overflow-y: auto;
         scrollbar-width: none;
     }
-    .App-body-left-side{
+
+    .App-body-left-side {
         display: flex;
         flex-direction: column;
         justify-content: left;
-        
+
     }
+
     .Chart {
         width: 400px;
         height: 250px;
     }
-    .widget{
+
+    .widget {
         width: 400px;
     }
 }

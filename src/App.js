@@ -5,8 +5,8 @@ import List from './components/List/';
 import Weatherwidget from "./components/Weatherwidget/";
 import Moonphase from "./components/Moonphase/";
 import Chart from "./components/Chart/"
-import { createContext } from 'react';
-import { useWeather } from './hooks/useWeather';
+import {createContext} from 'react';
+import {useWeather} from './hooks/useWeather';
 
 export const APIContext = createContext(null);
 
