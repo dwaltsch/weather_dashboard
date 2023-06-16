@@ -47,11 +47,11 @@ function Moonphase() {
                 justifyContent: 'left',
                 padding: '18px'
             }}
-                 src={`https://www.timeanddate.de/scripts/moon.php?i=${data.daily[0].moon_phase}&p=10&r=0.883`}
+                 src={`https://www.timeanddate.de/scripts/moon.php?i=${1- data.daily[0].moon_phase}&p=10&r=0.883`}
                  alt="weather icon"/>
             <h2>Mondphase</h2>
             <h3 style={{}}
-            >{((data.daily[0].moon_phase) * 100).toFixed(0)} % beleuchtet
+            >{100 - ((data.daily[0].moon_phase) * 100).toFixed(0)} % beleuchtet
             </h3>
             <p style={{
                 fontSize: '15px',
